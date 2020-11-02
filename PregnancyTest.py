@@ -15,7 +15,7 @@ while True:
     if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel    
         break
     if event == 'Check If Pregnant':
-        if random.randrange(0,1000) == 500:
+        if random.randrange(0,100) == 50:
             sg.Popup('You are Pregnant', keep_on_top=True)
         else:
             sg.Popup('You are not Pregnant', keep_on_top=True)
