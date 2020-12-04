@@ -1,4 +1,5 @@
 import keyboard as kb
+import keyboard
 
 myRecordedDic = {}
 recordedMacro = []
@@ -23,8 +24,6 @@ def GetInput():
 		recordKey = kb.read_key()
 		PlayMacro(recordKey)
 
+kb.add_hotkey('ctrl+shift+q', lambda: GetInput())
 while True:
-	if kb.is_pressed('q'):
-		print('1 time through')
-		GetInput()
-
+	keyboard.wait()	
