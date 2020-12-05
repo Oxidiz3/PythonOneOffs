@@ -4,7 +4,6 @@ Command Comprehender
     it wants and do something with it
 """
 
-from os import write
 
 # File Names
 verb_fileName = "verbs.txt"
@@ -78,25 +77,25 @@ def determine_word_type(word_list):
 
 def get_word_type(word):
     print("\no:object, n:noun, a:adjective, v:verb, 1: object indicator, 2: target indicator")
-    wordType = input("What type of word is " + str(word) + "?\n").lower()
+    word_type = input("What type of word is " + str(word) + "?\n").lower()
 
     # Get input then add new word to appropriate list
-    if wordType == 'o':
+    if word_type == 'o':
         object_list.append(word)
         write_to_file(object_fileName, word)
-    elif wordType == 'n':
+    elif word_type == 'n':
         noun_list.append(word)
         write_to_file(noun_fileName, word)
-    elif wordType == 'a':
+    elif word_type == 'a':
         adjective_list.append(word)
         write_to_file(adjective_filename, word)
-    elif wordType == 'v':
+    elif word_type == 'v':
         verb_list.append(word)
         write_to_file(verb_fileName, word)
-    elif wordType == '1':
+    elif word_type == '1':
         obj_indicator_list.append(word)
         write_to_file(obj_indicator_fileName, word)
-    elif wordType == '2':
+    elif word_type == '2':
         target_indicator_list.append(word)
         write_to_file(target_indicator_fileName, word)
     else:
