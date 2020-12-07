@@ -1,24 +1,14 @@
 import json
+from interpreter import WordType
 w_list = []
 data_dict = {}
 
 
-class WordType:
-    def __init__(self, name):
-        self.name = name
-        self.file_path = str(name + ".txt")
-        self.word_list = interpret_list(self.file_path)
-        w_list.append(self)
-
-
 def run():
     # Word types
-    w_verb = WordType("verb")
+    w_action = WordType("action")
     w_object = WordType("object")
-    w_adjective = WordType("adjective")
-    w_noun = WordType("noun")
-    w_obj_indicator = WordType("obj_indicator")
-    w_target_indicator = WordType("target_indicator")
+    w_target = WordType("target")
     w_ignore = WordType("ignore")
 
     # with open("word_types.txt") as fh:
@@ -37,20 +27,20 @@ def interpret_list(file_path):
     return stripped_list
 
 
-def data_to_dict():
-    for word_type in w_list:
+def data_to_dict(_list):
+    for word_type in _list:
         data_dict[word_type.name] = word_type.word_list
+    write_to_json()
 
 
 def write_to_json():
-    json_file = open("json_file.json", "w")
+    json_file = open("data.json", "w")
     json.dump(data_dict, json_file, indent=2)
 
 
 def __main__():
     run()
-    data_to_dict()
-    write_to_json()
+    data_to_dict(w_list)
 
 
 __main__()

@@ -1,0 +1,19 @@
+{
+  "action": [
+    "call",
+    "throw"
+  ],
+  "object": [
+    "fireball"
+  ],
+  "target": [
+    "orc"
+  ],
+  "actor": [
+    "porter"
+  ],
+  "ignore": [
+    "who",
+    "is"
+  ]
+}
